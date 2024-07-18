@@ -25,6 +25,17 @@ function DashboardPage() {
     setCount(data.counter);
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(count.toString()).then(
+      () => {
+        console.log("Copied to clipboard successfully!");
+      },
+      (err) => {
+        console.error("Failed to copy: ", err);
+      }
+    );
+  };
+
   return (
     <section className="h-[calc(100vh-7rem)] flex justify-center items-center">
       <div className="text-center">
@@ -50,6 +61,12 @@ function DashboardPage() {
               +
             </button>
           </div>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
+            onClick={copyToClipboard}
+          >
+            Copy to Clipboard
+          </button>
         </div>
       </div>
     </section>
