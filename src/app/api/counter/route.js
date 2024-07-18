@@ -67,7 +67,6 @@ export async function POST(request) {
 
   try {
     const { increment } = await request.json();
-    console.log({ increment });
 
     const user = await db.user.update({
       where: {

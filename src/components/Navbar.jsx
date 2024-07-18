@@ -1,16 +1,13 @@
+"use client";
 import Link from "next/link";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { FaUserCircle } from "react-icons/fa";
 
-async function Navbar() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
-
+function Navbar({ session }) {
   return (
     <nav className="flex justify-between items-center bg-gray-950 text-white px-24 py-3">
-      <h1 className="text-xl font-bold">NextAuth</h1>
+      <h1 className="text-xl font-bold">ID GENERATOR</h1>
 
-      <ul className="flex gap-x-2">
+      <ul className="flex gap-x-4 items-center">
         {!session?.user ? (
           <>
             <li>
@@ -30,6 +27,10 @@ async function Navbar() {
             </li>
             <li>
               <Link href="/api/auth/signout">Logout</Link>
+            </li>
+            <li className="flex items-center gap-x-2">
+              <FaUserCircle size={24} />
+              <span>{session.user.name || session.user.email}</span>
             </li>
           </>
         )}

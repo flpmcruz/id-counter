@@ -5,9 +5,9 @@ services:
     image: postgres
     container_name: postgres_container
     environment:
-      POSTGRES_USER: remake
-      POSTGRES_PASSWORD: remake-generator
-      POSTGRES_DB: id-generator
+      POSTGRES_USER: ${USER}
+      POSTGRES_PASSWORD: ${PASSWORD}
+      POSTGRES_DB: ${DB}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
