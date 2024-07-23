@@ -27,7 +27,7 @@ function DashboardPage() {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(`ID-${count.toString()}`).then(
+    navigator.clipboard.writeText(`ID ${count.toString()}:`).then(
       () => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
